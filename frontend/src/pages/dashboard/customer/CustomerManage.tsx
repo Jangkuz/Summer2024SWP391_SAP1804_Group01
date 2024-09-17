@@ -9,7 +9,7 @@ import CustomerColumnHeader from "./componenets/CustomerColumnHeader";
 import LoadingItem from "./componenets/LoadingItem";
 
 function CustomerManage() {
-  const [_selectedCustomers, setSelectedCustomers] = useState<number[]>([]);
+  // const [_selectedCustomers, setSelectedCustomers] = useState<number[]>([]);
   const getAllCustomerAPI: string = "/api/Accounts/Customer?";
   const location = useLocation();
   const [_statusText, setStatusText] = useState("Status");

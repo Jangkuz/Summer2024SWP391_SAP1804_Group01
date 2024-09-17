@@ -9,8 +9,8 @@ import Radiant from "../../../../components/svg/Radiant";
 import Asscher from "../../../../components/svg/Asscher";
 import Oval from "../../../../components/svg/Oval";
 import Princess from "../../../../components/svg/Princess";
-import { useSearchStore } from "../../../../store/searchStore";
-import { useNavigate } from "react-router-dom";
+// import { useSearchStore } from "../../../../store/searchStore";
+// import { useNavigate } from "react-router-dom";
 import { Divider } from "antd";
 const items = [
   {

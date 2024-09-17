@@ -1,7 +1,7 @@
 import { ExternalLink } from "lucide-react";
-import { Button, Image, Modal } from "antd";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import {  Image } from "antd";
+// import { useState } from "react";
+// import { useNavigate } from "react-router-dom";
 import { getOrderDiamondPrice } from "../../../../utils/getPrice";
 
 const DiamondItem = ({
@@ -13,8 +13,8 @@ const DiamondItem = ({
   percent: any;
   order: any;
 }) => {
-  const [isModalDiamondWarranty, setIsModalDiamondWarranty] = useState(false);
-  const navigate = useNavigate();
+  // const [isModalDiamondWarranty, setIsModalDiamondWarranty] = useState(false);
+  // const navigate = useNavigate();
 
   
   

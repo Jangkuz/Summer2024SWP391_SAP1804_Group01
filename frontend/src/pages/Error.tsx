@@ -1,9 +1,9 @@
 import { Button } from "antd";
-import { useRouteError } from "react-router-dom";
-import Logo from "../components/logo/Logo";
+// import { useRouteError } from "react-router-dom";
+// import Logo from "../components/logo/Logo";
 
 export default function Error() {
-  const error: any = useRouteError();
+  // const error: any = useRouteError();
   const errorImages = [
     "url(/images/error_1.png)",
     "url(/images/error_2.png)",
@@ -26,8 +26,8 @@ export default function Error() {
         <div
           className="aspect-square bg-contain bg-no-repeat w-[500px]"
           style={{
-            backgroundImage: "url(/images/face-without-mouth_1f636.png)",
-            //  backgroundImage: randomImage,
+            // backgroundImage: "url(/images/face-without-mouth_1f636.png)",
+             backgroundImage: randomImage,
           }}
         ></div>
         <div className="font-bold text-3xl">Oops!</div>

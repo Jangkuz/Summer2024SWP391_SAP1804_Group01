@@ -33,8 +33,8 @@ function calculateRank(reward_point: number): string {
 
 function CustomerRow({
   account,
-  selectedAccount,
-  setSelectedAccount,
+  // selectedAccount,
+  // setSelectedAccount,
 }: {
   account: any;
   selectedAccount: number[];

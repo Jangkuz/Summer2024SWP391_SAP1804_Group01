@@ -5,7 +5,7 @@ import { Truck } from "lucide-react";
 import EditCheckoutInfo from "./components/EditCheckoutInfo";
 import { POST, PUT } from "../../utils/request";
 import { useCartStore } from "../../store/cartStore";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import Loading from "../../components/Loading";
 import { useCheckoutStore } from "../../store/checkoutStore";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
