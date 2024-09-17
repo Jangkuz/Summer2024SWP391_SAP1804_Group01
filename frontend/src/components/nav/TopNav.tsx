@@ -72,6 +72,7 @@ export default function TopNav() {
     ],
   });
   return (
+    <div>
     <div className="top-0 left-0 relative gap-4 py-3 px-4 bg-white w-full shadow-lg h-full">
       <div className="flex justify-between md:hidden">
         <div className="flex justify-end gap-6 items-center">
@@ -218,5 +219,11 @@ export default function TopNav() {
         </span>
       </div>
     </div>
+      <div className="p-3 mb-2 bg-danger text-red bold">
+      <div className="p-3 mb-2 bg-danger text-red bold">
+     ** DISCLAMER: This is a university project and is NOT a real E-commers site. Please DO NOT enter your personal information here! **
+        </div>
+        </div>
+  </div>
   );
 }
