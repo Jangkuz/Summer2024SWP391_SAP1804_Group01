@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">DATJ_app_frontend</string>
+    <string name="title_activity_main">DATJ_app_frontend</string>
+    <string name="package_name">dat_jang.id.vn</string>
+    <string name="custom_url_scheme">dat_jang.id.vn</string>
+</resources>
