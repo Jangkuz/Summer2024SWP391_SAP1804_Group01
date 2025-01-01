@@ -1,31 +1,64 @@
 version: "3.9"
 
 services:
+  sqlserver-docker:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: datj-sqlserver
+    ports:
+      - "1433:1433"
+    volumes:
+      - sqlserver-data:/var/opt/mssql
+    env_file:
+      - ./sqlserver/.env
+    networks:
+      - backend-network
+
   backend:
+    image: datj-backend
+    # pull-policy: never
+    container_name: datj-backend
     build:
       context: ./backend
       dockerfile: Dockerfile
     ports:
-      - "8080:8080"
+      - "7979:8080"
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ConnectionStrings__DefaultConnection=Server=tcp:datj.database.windows.net,1433;Initial Catalog=DATJ;Persist Security Info=False;User ID=germanypeach;Password=GerPeach@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
+      - ConnectionStrings__DefaultConnection=server=sqlserver-docker;database=DATJ;uid=sa;pwd=Sa123456798;TrustServerCertificate=true
+    depends_on:
+      - sqlserver-docker
+    networks:
+      - backend-network
+      - frontend-network
 
   frontend:
+    image: datj-frontend
+    # pull-policy: never
+    container_name: datj-frontend
     build:
       context: ./frontend
       dockerfile: Dockerfile
     ports:
-      - "3000:3000"
+      - "3001:80"
     depends_on:
       - backend
     environment:
-      - VITE_SERVER_URL=http://localhost:8080
+      # - VITE_SERVER_URL=http://localhost:7979
       - NODE_ENV=development
       - CHOKIDAR_USEPOLLING=true
     volumes:
       - ./frontend/src:/app/src
       - /app/node_modules
+    networks:
+      - frontend-network
+
+networks:
+  backend-network:
+    driver: bridge
+  frontend-network:
+    driver: bridge
+volumes:
+  sqlserver-data:
 
   # db:
   #   image: mcr.microsoft.com/mssql/server:2019-latest
