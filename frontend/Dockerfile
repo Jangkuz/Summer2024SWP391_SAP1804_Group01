@@ -23,15 +23,19 @@ COPY . .
 # Build the application
 RUN npm run build
 
-FROM nginx:alpine AS runner
-COPY --from=builder /app/dist /usr/share/nginx/html
+# FROM nginx:alpine AS runner
 # COPY --from=builder /app/dist /usr/share/nginx/html
-
 #Add custom nginx config if needed
 # COPY nginx.conf /etc/nginx/conf.d/default.conf
 # Expose the port the app runs on
-EXPOSE 80
-
+# EXPOSE 80
 # Start Nginx server
-CMD ["nginx", "-g", "daemon off;"]
+# CMD ["nginx", "-g", "daemon off;"]
+
+FROM busybox:1.37.0 AS runner
+WORKDIR /app
+COPY --from=builder /app/dist .
+CMD ["busybox", "httpd", "-f", "-v", "-p", "3000"]
+
+
 # CMD [ "npm", "run","preview" ]
